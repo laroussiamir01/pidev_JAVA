@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@Assets/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+  
+      <Button fx:id="btn_mod_hop" layoutX="14.0" layoutY="123.0" mnemonicParsing="false" text="Modifier dune hospitalisation" />
+      <Button fx:id="btn_aff_serv" layoutX="14.0" layoutY="37.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="164.0" text="Afficher tous les services" />
+      <Button fx:id="btn_ajout_hop" layoutX="22.0" layoutY="223.0" mnemonicParsing="false" text="Ajout dune hospitalisation" />
+      <Button fx:id="btn_aff_hop" layoutX="18.0" layoutY="320.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" text="Afficher des hospitalisations" />
+   </children>
+</AnchorPane>
