@@ -27,8 +27,8 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("Acceuil.fxml"));
-          Parent root2 = FXMLLoader.load(getClass().getResource("dashboard_admin_tassnim.fxml"));
+            Parent root =FXMLLoader.load(getClass().getResource("service.fxml"));
+          Parent root2 = FXMLLoader.load(getClass().getResource("AfficherService.fxml"));
 Scene scene2 = new Scene(root2);
 Stage afficherServiceStage = new Stage();
 
