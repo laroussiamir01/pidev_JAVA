@@ -59,15 +59,15 @@ public class ChatBotController implements Initializable{
         // Loop through responses and return a random one
 
         for (String response : RESPONSES) {
-            if (input.toLowerCase().contains("salut ?")) {
+            if (input.toLowerCase().contains("salut")) {
                 return "salut comment je peux t aider aujourd'hui ?";
             }
-            if (input.toLowerCase().contains("dd") || input.toLowerCase().contains("developpement durable") || input.toLowerCase().contains("durable") ) {
+            if (input.toLowerCase().contains("s") || input.toLowerCase().contains("sante") || input.toLowerCase().contains("maladie") ) {
                 return "Le développement durable est une conception du développement qui s'inscrit dans une perspective de "
                         + "long terme et en intégrant les contraintes environnementales et sociales à l'économie";
             }
-             if (input.toLowerCase().contains("i have some question")) {
-                return "i will do my best to help you";
+             if (input.toLowerCase().contains("j'ai des questions")) {
+                return "je ferai mon mieux pour vous aider";
             }
             
             if (input.toLowerCase().contains(input.toLowerCase())) {

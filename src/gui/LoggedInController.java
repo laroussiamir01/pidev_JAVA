@@ -44,6 +44,10 @@ import util.dbconnection;
  */
 public class LoggedInController implements Initializable {
 
+    
+    
+    @FXML
+    private Button exit;
     @FXML
     private TextField Recherche_User;
     @FXML
@@ -56,34 +60,19 @@ public class LoggedInController implements Initializable {
     @FXML
     private TableColumn<User, String> email;
     @FXML
-    private TableColumn<User, String> num_telephone;
-    @FXML
     private TableColumn<User, String> roles;
     @FXML
-    private TableColumn<User, Integer> score;
-    @FXML
-    private TableColumn<User, Integer> nb_etoile;
-    @FXML
-    private TableColumn<User, String> nom;
-    @FXML
-    private TableColumn<User, String> prenom;
+    private TableColumn<User, String> username;
 
     @FXML
     private TextField emails;
     @FXML
     private TextField ids;
-     @FXML
-    private TextField num_telephones;
     @FXML
-    private TextField noms;
-    @FXML
-    private TextField prenoms;
+    private TextField usernames;
      @FXML
     private TextField roless;
-    @FXML
-    private TextField scores;
-    @FXML
-    private TextField nb_etoiles;
+
     
     
     @FXML
@@ -99,23 +88,18 @@ public class LoggedInController implements Initializable {
     private ResultSet result;
 
     int index = -1;
-    @FXML
-    private Button reclamation_user;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //showRec();
         addButtonToTable();
+         addButtonToTable2();
         ObservableList<User> listm = getUserList();
              
        email.setCellValueFactory(new PropertyValueFactory<>("email"));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        num_telephone.setCellValueFactory(new PropertyValueFactory<>("num_telephone"));
         roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
-        score.setCellValueFactory(new PropertyValueFactory<>("score"));
-        nb_etoile.setCellValueFactory(new PropertyValueFactory<>("nb_etoiles"));
-        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom")); 
+        username.setCellValueFactory(new PropertyValueFactory<>("username"));
    
         tvUsers.setItems(listm);
         search_user();
@@ -180,6 +164,53 @@ public class LoggedInController implements Initializable {
 
     }
   
+   private void addButtonToTable2() {
+        TableColumn<User, Void> Block1Btn = new TableColumn("Déblock");
+
+        Callback<TableColumn<User, Void>, TableCell<User, Void>> cellFactory = new Callback<TableColumn<User, Void>, TableCell<User, Void>>() {
+            @Override
+            public TableCell<User, Void> call(final TableColumn<User, Void> param) {
+                final TableCell<User, Void> cell = new TableCell<User, Void>() {
+
+                    private final Button btn = new Button("Déblock");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            TableColumn<User, String> firstColumn = (TableColumn<User, String>) getTableView().getColumns().get(0);
+                            String email = firstColumn.getCellData(getIndex());
+                            System.out.println("selectedData: " + email);
+                           try {
+                                ServiceUser.getInstance().DeblockUser(email);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(LoggedInController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+            
+             
+        };
+
+        Block1Btn.setCellFactory(cellFactory);
+
+        tvUsers.getColumns().add(Block1Btn);
+       
+
+    }
+  
+  
     @FXML
     public void getSelected(MouseEvent event) throws SQLException {
         index = tvUsers.getSelectionModel().getSelectedIndex();
@@ -189,17 +220,18 @@ public class LoggedInController implements Initializable {
         }
         ids.setText(id.getCellData(index).toString());
         emails.setText(email.getCellData(index).toString());
-        noms.setText(nom.getCellData(index).toString());
-        prenoms.setText(prenom.getCellData(index).toString());
+        usernames.setText(username.getCellData(index).toString());    
         roless.setText(roles.getCellData(index).toString());
-        scores.setText(score.getCellData(index).toString());
-        num_telephones.setText(num_telephone.getCellData(index).toString());
-        nb_etoiles.setText(nb_etoile.getCellData(index).toString());
+       
 
 
     }
 
+    @FXML
+    private void showSelectedUser(MouseEvent event) {
+    }
 
+    @FXML
     public ObservableList<User> getUserList() {
         cnx = dbconnection.getInstance().getConnection();
 
@@ -210,7 +242,7 @@ public class LoggedInController implements Initializable {
             User user;
             ResultSet rs = smt.executeQuery();
             while (rs.next()) {
-                user = new User(rs.getInt("id"), rs.getString("email"),  rs.getString("num_telephone"),  rs.getString("roles"),  rs.getInt("score"),  rs.getInt("nb_etoile"),  rs.getString("nom"),  rs.getString("prenom"));
+                user = new User(rs.getInt("id"), rs.getString("email"),rs.getString("roles"),rs.getString("username"));
                 UserList.add(user);
             }
             System.out.println(UserList);
@@ -228,48 +260,37 @@ public class LoggedInController implements Initializable {
         ObservableList<User> list = getUserList();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        username.setCellValueFactory(new PropertyValueFactory<>("username"));
         roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
-        score.setCellValueFactory(new PropertyValueFactory<>("score"));
-        nb_etoile.setCellValueFactory(new PropertyValueFactory<>("nb_etoile"));
-        num_telephone.setCellValueFactory(new PropertyValueFactory<>("num_telephone"));
+
 
         tvUsers.setItems(list);
 
     }
 
+    @FXML
     private void refresh() {
         ObservableList<User> list = getUserList();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        username.setCellValueFactory(new PropertyValueFactory<>("username"));
         roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
-        score.setCellValueFactory(new PropertyValueFactory<>("score"));
-        nb_etoile.setCellValueFactory(new PropertyValueFactory<>("nb_etoile"));
-        num_telephone.setCellValueFactory(new PropertyValueFactory<>("num_telephone"));
         
         tvUsers.setItems(list);
 
     }
 
 
-    @FXML
     public void Edit() {
 
         try {
             cnx = dbconnection.getInstance().getConnection();
             String value1 = ids.getText();
             String value2 = emails.getText();
-            String value3 = noms.getText();
-            String value4 = prenoms.getText();
-            String value5 = scores.getText();
-            String value6 = nb_etoiles.getText();
-            String value7 = num_telephones.getText();
+            String value3 = usernames.getText();
             String value8 = roless.getText();
 
-            String query3 = "update user set email='" + value2 + "'  ,nom='" + value3 + "'  ,prenom='" + value4 + "'  ,score='" + value5 + "'  ,nb_etoile='" + value6 + "'  ,num_telephone='" + value7 + "'  ,roles='" + value8 + "' WHERE id = '" + value1 + "' ";
+            String query3 = "update user set email='" + value2 + "'  ,username='" + value3 + "'  ,roles='" + value8 + "' WHERE id = '" + value1 + "' ";
             PreparedStatement smt = cnx.prepareStatement(query3);
             smt.execute();
             showRec();
@@ -286,7 +307,6 @@ public class LoggedInController implements Initializable {
         }
     }
 
-    @FXML
     public void Delete() {
         cnx = dbconnection.getInstance().getConnection();
         String sql = "delete from user where id = ?";
@@ -310,15 +330,13 @@ public class LoggedInController implements Initializable {
 
     }
 
+    @FXML
     void search_user() {
          id.setCellValueFactory(new PropertyValueFactory<>("id"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
-        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        username.setCellValueFactory(new PropertyValueFactory<>("username"));
         roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
-        score.setCellValueFactory(new PropertyValueFactory<>("score"));
-        nb_etoile.setCellValueFactory(new PropertyValueFactory<>("nb_etoile"));
-        num_telephone.setCellValueFactory(new PropertyValueFactory<>("num_telephone"));
+     
         
         cnx = dbconnection.getInstance().getConnection();
 
@@ -333,11 +351,11 @@ public class LoggedInController implements Initializable {
                     return true;
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
-                if (person.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                if (person.getUsername().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches username
                 } else if (person.getRoles().toLowerCase().indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches password*/
-                } else if (String.valueOf(person.getNum_telephone()).indexOf(lowerCaseFilter) != -1) {
+                } else if (String.valueOf(person.getEmail()).indexOf(lowerCaseFilter) != -1) {
                     return true; // Filter matches email
                 } else {
                     return false; // Does not match.

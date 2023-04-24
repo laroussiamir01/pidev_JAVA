@@ -8,14 +8,10 @@ package gui;
 import entites.User;
 import pidevuser.PidevUser;
 import Services.ServiceUser;
-import entites.Reclamation;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -27,14 +23,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
-import util.dbconnection;
 
 /**
  * FXML Controller class
@@ -44,22 +37,11 @@ import util.dbconnection;
 public class EditprofileController implements Initializable {
 String imagePath="";
     @FXML
-    private TextField nom;
-    @FXML
-    private TextField prenom;
+    private TextField username;
     @FXML
     private TextField email;
-    @FXML
-    private TextField type;
-    @FXML
-    private TextField num_telephone;
-@FXML
-    private ImageView pic;
-    @FXML
-    private TableColumn<Reclamation, String> message_rec;
-    
-    @FXML
-    private TableView<Reclamation> tv_rec;
+
+
     /**
      * Initializes the controller class.
      */
@@ -67,68 +49,27 @@ String imagePath="";
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
+        
          User user = pidevuser.PidevUser.user;
-        // Reclamation e = pidevuser.PidevUser.e;
-          final String imageURI4 = new File(user.getImage()).toURI().toString();
-       pic.setImage(new Image(imageURI4));
-   
-        nom.setText(user.getNom());
-        email.setText(user.getEmail());
-        prenom.setText(user.getPrenom());
-        type.setText(user.getType());
-        num_telephone.setText(user.getNum_telephone());
-        
-     /*   Connection cnx = dbconnection.getInstance().getConnection();
-PreparedStatement ps;
-    try {
-        ps = cnx.prepareStatement("SELECT message FROM reclamation WHERE id = ?");
-        ps.setInt(1, e.getUser());
-ResultSet rs = ps.executeQuery();
-if(rs.next()) {
-    String nomCategorie = rs.getString(1);
-    
-} else {
-    eventShowCategory.setText("Catégorie introuvable");
-}
-    } catch (SQLException ex) {
-        Logger.getLogger(EditprofileController.class.getName()).log(Level.SEVERE, null, ex);
-    }
-*/
-        
-        
-    }    
-     @FXML
-    private void addImage(ActionEvent event) {
-        FileChooser fc = new FileChooser();
 
-        FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
-        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
-        fc.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
-        File selectedFile = fc.showOpenDialog(null);
-        try {
-            BufferedImage bufferedImage = ImageIO.read(selectedFile);
-            Image image2 = SwingFXUtils.toFXImage(bufferedImage, null);
-            //imageIn.setFill(new ImagePattern(image2));
-            imagePath = selectedFile.toURI().toURL().toString();
-             pic.setImage(image2);
-        } catch (IOException ex) {
-            Logger.getLogger(EditprofileController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+        username.setText(user.getUsername());
+        email.setText(user.getEmail());
+    }    
+   
     @FXML
-     private void editUser(ActionEvent event) throws IOException, SQLException {
+     private void editUserProfile(ActionEvent event) throws IOException, SQLException {
        
            
            
-           if(ValidateEmptyForm(nom,prenom,type,num_telephone,email,pic)
-            && ValidateName(nom) && ValidateEmail(email) && ValidateNumTel(num_telephone))
+           if(ValidateEmptyForm(username,email)
+            && ValidateName(username) && ValidateEmail(email) )
         {
            
-            User userx = new User(email.getText(),pidevuser.PidevUser.user.getPassword(), num_telephone.getText(),type.getText(), nom.getText(), prenom.getText(),imagePath);
+            User userx = new User(email.getText(),pidevuser.PidevUser.user.getPassword(), username.getText());
            System.out.println("***************"+userx);
             
                
-                ServiceUser.getInstance().editUser(userx);
+                ServiceUser.getInstance().editUserProfile(userx);
                 
                 
                 //  FXMLLoader loader =  new FXMLLoader(getClass().getResource("../Views/Login.fxml"));
@@ -147,9 +88,9 @@ if(rs.next()) {
         
     }
     
-      private boolean ValidateEmptyForm(TextField nom, TextField prenom,TextField email,TextField type,TextField num_telephone ,ImageView img){
-         if (nom.getText().equals("")  || prenom.getText().equals("") ||
-                 type.getText().equals("") || num_telephone.getText().equals("") || email.getText().equals("") || img.getImage()==null ){
+      private boolean ValidateEmptyForm(TextField username ,TextField email){
+         if (username.getText().equals("")  ||
+                 email.getText().equals("")  ){
              Alert alert = new Alert(Alert.AlertType.WARNING);
              alert.setTitle("Erreur");
              alert.setHeaderText(null);
