@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="687.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontController">
+     <children>
+      <ImageView fitHeight="606.0" fitWidth="734.0" layoutX="178.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/19c4c0bd5e9ceaa9287902a79fd8cc16.jpg" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table" layoutX="283.0" layoutY="164.0" onMouseClicked="#getDetailCmd" prefHeight="359.0" prefWidth="396.0">
+        <columns>
+          <TableColumn fx:id="colId" minWidth="0.0" prefWidth="0.0" text="Id" visible="false" />
+          <TableColumn fx:id="colClient" prefWidth="138.0" text="Event" />
+            <TableColumn fx:id="colNumCmd" prefWidth="121.00003051757812" text="Nom" />
+            <TableColumn fx:id="colMntCmd" prefWidth="134.0" text="Montant" />
+        </columns>
+      </TableView>
+      <Label layoutX="366.0" layoutY="67.0" prefHeight="62.0" prefWidth="246.0" text="Evenement" textFill="#1a4f7e" textOverrun="CLIP">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
