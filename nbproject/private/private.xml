@@ -3,20 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/services/IGestionHospital.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/services/GestionService.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/services/IGestionService.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/services/GestionHospitalisation.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/gui/ServiceController.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/gui/service.fxml</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/gui/AfficherService.fxml</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/pidev3a51/Pidev3A51.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/tools/MaConnexion.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/gui/AfficherServiceController.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/tests/Main.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/gui/NewFXMain.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/entities/Services.java</file>
-            <file>file:/C:/Users/hamdi/Downloads/pidev3A51/pidev3A51/src/tn/esprit/entities/Hospitalisation.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/services/GestionHospitalisation.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/java/utils.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/SMS.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/MainAdmin.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/TwilioMessageResponse.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/entities/Hospitalisation.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/services/GestionService.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/Interface_afficher_hospController.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/tools/MaConnexion.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/tests/Main.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/Dashboard_admin_tassnimController.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/services/IGestionHospital.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/DashboardAdminController.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/java/.env</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/entities/Services.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/Interface_afficher_serviceController.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/tests/Mapa.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/SmsController.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/Interface_ajout_hospController.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/tn/esprit/gui/MainClient.java</file>
+            <file>file:/C:/Users/hamdi/Desktop/COPIE%20DE%20PRATIQUE%20JAVA%20EKHDM%20LENAA2/pidev3A51/src/JFXButton.java</file>
         </group>
     </open-files>
 </project-private>

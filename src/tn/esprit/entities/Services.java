@@ -5,6 +5,8 @@
  */
 package tn.esprit.entities;
 
+import javafx.scene.control.TableColumn;
+
 /**
  *
  * @author Fayechi
@@ -42,6 +44,10 @@ public class Services {
     }
 
     public Services(int id, String type) {
+    }
+
+    public Services(TableColumn<Hospitalisation, Integer> id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
   

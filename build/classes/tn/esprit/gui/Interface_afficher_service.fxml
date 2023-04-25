@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1200.0" stylesheets="@Assets/style_back.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gui.Interface_afficher_serviceController">
+   <children>
+      <TableView fx:id="Tservice" layoutX="145.0" layoutY="32.0" prefHeight="470.0" prefWidth="752.0">
+        <columns>
+          <TableColumn fx:id="description" prefWidth="112.66659545898438" text="Description" />
+            <TableColumn fx:id="type" prefWidth="311.3333740234375" text="Type" />
+            <TableColumn fx:id="prix" prefWidth="90.6666259765625" text="Prix" />
+            <TableColumn fx:id="chef_service" prefWidth="136.00006103515625" text="Chef Service" />
+        </columns>
+      </TableView>
+      <Button fx:id="refreshButton" layoutX="493.0" layoutY="519.0" mnemonicParsing="false" text="Refresh" />
+   </children>
+</AnchorPane>

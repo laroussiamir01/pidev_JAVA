@@ -5,12 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import tn.esprit.entities.Services;
 import tn.esprit.tools.MaConnexion;
+//import org.controlsfx.control.Notifications;
 
 public class GestionService implements IGestionService<Services>{
     Connection cnx;
@@ -85,5 +90,22 @@ public class GestionService implements IGestionService<Services>{
         }
          
         
+ 
     }
+   /* public void showNotification(String title, String message) {
+        Notifications notificationsBuilder;
+        notificationsBuilder = Notifications.create()
+                .title(title)
+                .text(message)
+               
+                .position(Pos.BOTTOM_RIGHT);
+
+       ImageView logoImage = new ImageView(new Image("/Images/logo.jpg"));
+        logoImage.setFitWidth(50);
+        logoImage.setPreserveRatio(true);
+       // notificationsBuilder.graphic(logoImage);
+
+        notificationsBuilder.show();
+    }*/
 }
+

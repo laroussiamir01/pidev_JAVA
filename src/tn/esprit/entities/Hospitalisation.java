@@ -16,9 +16,12 @@ public class Hospitalisation {
     private int id;
     private int id_hospitalisation;
     Services S ;
+    
 
     public Hospitalisation() {
     }
+
+   
 
     public Hospitalisation(Date date_entree) {
         this.date_entree = date_entree;
@@ -30,6 +33,17 @@ public class Hospitalisation {
         this.id = id;
         this.id_hospitalisation = id_hospitalisation;
         this.S = S;
+    }
+
+    public Hospitalisation(Services S) {
+        this.S = S;
+    }
+
+    public Hospitalisation(int id, int id_hop, int serv_id, Date valueOf, Date valueOf0) {
+           }
+
+    public Hospitalisation(int id_hospitalisation, Services op, Date valueOf, Date valueOf0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Date getDate_entree() {

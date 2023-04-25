@@ -12,12 +12,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import tn.esprit.entities.Hospitalisation;
 import tn.esprit.entities.Services;
 import tn.esprit.tools.MaConnexion;
-
+import javax.mail.PasswordAuthentication;
 
 
 /**
@@ -36,15 +43,17 @@ public class GestionHospitalisation implements IGestionHospital<Hospitalisation>
 
 @Override
 public void ajouter(Hospitalisation h) throws SQLException {
-   sql = "INSERT INTO hospitalisation(date_entree, date_sortie, id_service) " +
-      "VALUES (?, ?, (SELECT id FROM services WHERE type = ?))";
-   PreparedStatement ste = cnx.prepareStatement(sql);
-    ste.setDate(1, new java.sql.Date(h.getDate_entree().getTime()));
-    ste.setDate(2, new java.sql.Date(h.getDate_sortie().getTime()));
-    ste.setString(3, h.getS().getType());
-    ste.executeUpdate();
+    String sql = "INSERT INTO hospitalisation (date_entree, date_sortie, id_hospitalisation, service_id)VALUES(?,?,?,?)";
+    PreparedStatement statement = cnx.prepareStatement(sql);
+    statement.setDate(1, new java.sql.Date(h.getDate_entree().getTime()));
+    statement.setDate(2, new java.sql.Date(h.getDate_sortie().getTime()));
+    statement.setInt(3, h.getId_hospitalisation());
+    statement.setInt(4, h.getS().getId());
+    statement.executeUpdate();
     System.out.println("Hospitalisation ajoutée !");
 }
+
+
 
 
     
@@ -94,21 +103,54 @@ public List<Hospitalisation> afficher() {
     @Override
     public void modifier(Hospitalisation t) {
          try {
-             sql = "UPDATE hospitalisation SET date_entree = ?, date_sortie = ?, id_hospitalisation = ?, service_id = ? WHERE id = ?";
+             sql = "UPDATE hospitalisation SET date_entree = ?, date_sortie = ?, id_hospitalisation  = ? WHERE id = ?";
              PreparedStatement ste = cnx.prepareStatement(sql);
              ste.setDate(1, t.getDate_entree());
              ste.setDate(2, t.getDate_sortie());
              ste.setInt(3, t.getId_hospitalisation());
-             ste.setInt(4, t.getS().getId());
-             ste.setInt(5, t.getId());
+             //ste.setInt(4, t.getS().getId());
+             ste.setInt(4, t.getId());
              ste.executeUpdate();
              System.out.println("Hospitalisation modifié !");
          } catch (SQLException ex) {
              Logger.getLogger(GestionHospitalisation.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
-
     
 
-   
+    //qcimysrwmixugsbk
+
+  
+private String Mail = "hamditasnim416@gmail.com";
+private String Password = "qcimysrwmixugsbk";
+
+public void envoyer(String recepient,String subj,String textmsg) {
+Properties properies = new Properties();
+properies.put("mail.smtp.host", "smtp.gmail.com");
+properies.put("mail.smtp.port", "465");
+properies.put("mail.smtp.auth", "true");
+properies.put("mail.smtp.starttls.enable", "true");
+properies.put("mail.smtp.starttls.required", "true");
+properies.put("mail.smtp.ssl.protocols", "TLSv1.2");
+properies.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+Session session = Session.getInstance(properies,
+new javax.mail.Authenticator() {
+    
+protected PasswordAuthentication getPasswordAuthentication() {
+return new PasswordAuthentication(Mail, Password);
+}
+});
+try {
+Message message = new MimeMessage(session);
+message.setFrom(new InternetAddress("hamditasnim416@gmail.com"));
+message.setRecipients(Message.RecipientType.TO,
+InternetAddress.parse(recepient));
+message.setSubject(subj);
+message.setText(textmsg);
+// Etape 3 : Envoyer le message
+Transport.send(message);
+System.out.println("Message_envoye");
+} catch (MessagingException e) {
+      System.out.println("error" + e.toString());
+} } 
 }
