@@ -25,6 +25,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -84,6 +85,19 @@ public class SignUpController implements Initializable {
              alert.setHeaderText(null);
              alert.setContentText("User Ajouter");
              alert.showAndWait();
+             
+             FXMLLoader LOADER = new FXMLLoader(getClass().getResource("login.fxml"));
+                try {
+                    Parent root = LOADER.load();
+                    Scene sc = new Scene(root);
+                    loginController cntr = LOADER.getController();
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    window.setScene(sc);
+                    window.show();
+                } catch (IOException ex) {
+
+                }
 
                    
 

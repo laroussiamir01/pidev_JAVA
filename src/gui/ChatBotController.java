@@ -12,7 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import pidevuser.PidevUser;
 
 /**
@@ -38,7 +45,12 @@ public class ChatBotController implements Initializable{
         btnSend.setOnAction(event -> {
             String input = txtInput.getText();
             System.out.println("input"+input);
-            String response = getResponse(input);
+            String response = null;
+            try {
+                response = getResponse(input);
+            } catch (IOException ex) {
+                Logger.getLogger(ChatBotController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.out.println(response);
             lblOutput.setText(response);
             txtInput.clear();
@@ -55,16 +67,21 @@ public class ChatBotController implements Initializable{
 
    
 
-    private String getResponse(String input) {
+    private String getResponse(String input) throws IOException {
         // Loop through responses and return a random one
 
         for (String response : RESPONSES) {
             if (input.toLowerCase().contains("salut")) {
                 return "salut comment je peux t aider aujourd'hui ?";
             }
+            if (input.toLowerCase().contains("forgot my password")) {
+                PidevUser m = new PidevUser() ;
+         m.changeScene("/gui/ResetPassword.fxml");
+            }
+          
             if (input.toLowerCase().contains("s") || input.toLowerCase().contains("sante") || input.toLowerCase().contains("maladie") ) {
-                return "Le développement durable est une conception du développement qui s'inscrit dans une perspective de "
-                        + "long terme et en intégrant les contraintes environnementales et sociales à l'économie";
+                return "Les cosignes doivent être remises au surveillant de garde qui doit les remettre au service désigné \n" + " par l’administration pour gérer les consignes en fin de la séance de garde selon le cas.\n "
+                        + "Les cosignes sont remises à l’intendant(e) ou au surveillant du service \n" + " ou séjourne le malade, qui doivent les remettre au service désigné par l’administration pour gérer les consignes";
             }
              if (input.toLowerCase().contains("j'ai des questions")) {
                 return "je ferai mon mieux pour vous aider";

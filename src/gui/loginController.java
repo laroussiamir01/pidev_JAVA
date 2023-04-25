@@ -97,7 +97,7 @@ private void checkLogin() throws IOException, SQLException, InterruptedException
     private void checkSignUp() throws IOException{
         
             PidevUser m = new PidevUser();
-             m.changeScene("/gui/SignUp.fxml");
+             m.changeScene("/gui/captcha.fxml");
            
     }
     @FXML

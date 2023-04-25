@@ -14,10 +14,10 @@
       <TextField fx:id="Recherche_User" layoutX="244.0" layoutY="54.0" prefHeight="34.0" prefWidth="641.0" promptText="Search" />
       <TableView fx:id="tvUsers" layoutX="244.0" layoutY="99.0" onMouseClicked="#getSelected" prefHeight="482.0" prefWidth="754.0" style="-fx-background-color: white;">
          <columns>
-            <TableColumn fx:id="email" prefWidth="156.7999725341797" text="Email" />
-            <TableColumn fx:id="id" prefWidth="68.79998779296875" text="ID" /> 
-            <TableColumn fx:id="username" minWidth="0.0" prefWidth="76.0" text="Name" />
-            <TableColumn fx:id="roles" prefWidth="114.4000244140625" text="Role" />
+            <TableColumn fx:id="email" prefWidth="258.0" text="Email" />
+            <TableColumn fx:id="id" minWidth="0.0" prefWidth="0.0" text="ID" /> 
+            <TableColumn fx:id="username" minWidth="0.0" prefWidth="129.0" text="Name" />
+            <TableColumn fx:id="roles" prefWidth="154.0" text="Role" />
              
            
             

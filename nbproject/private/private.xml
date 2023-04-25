@@ -4,12 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/Password_resetController.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/entites/Reclamation.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/loginController.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/Services/ServiceReclamation.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/entites/User.java</file>
             <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/ChatBotController.java</file>
-            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/LoggedInController.java</file>
             <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/ResetPasswordController.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/util/dbconnection.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/ReclamationController.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/LoggedInController.java</file>
+            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/CaptchaController.java</file>
             <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/gui/SignUpController.java</file>
             <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/Services/ServiceUser.java</file>
-            <file>file:/C:/Users/Asus%20store/Desktop/javafx/finale/PidevUser/src/util/dbconnection.java</file>
         </group>
     </open-files>
 </project-private>
