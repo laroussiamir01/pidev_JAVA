@@ -27,7 +27,9 @@ public class User {
 
   
     
-
+ public User(int id){
+      this.id=id;
+  }
     public User(int id ,String email ,String roles,String Password,String username)
         {
             this.id=id ;
@@ -43,6 +45,8 @@ public class User {
             this.Password =Password ;
             
         }
+    
+ 
 
     public User(String email, String Password, String username) {
         this.email = email;

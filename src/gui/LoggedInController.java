@@ -47,8 +47,6 @@ public class LoggedInController implements Initializable {
     
     
     @FXML
-    private Button exit;
-    @FXML
     private TextField Recherche_User;
     @FXML
     private TableView<User> tvUsers;
@@ -88,6 +86,8 @@ public class LoggedInController implements Initializable {
     private ResultSet result;
 
     int index = -1;
+    @FXML
+    private Button reclamation_user;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -227,11 +227,7 @@ public class LoggedInController implements Initializable {
 
     }
 
-    @FXML
-    private void showSelectedUser(MouseEvent event) {
-    }
 
-    @FXML
     public ObservableList<User> getUserList() {
         cnx = dbconnection.getInstance().getConnection();
 
@@ -268,7 +264,6 @@ public class LoggedInController implements Initializable {
 
     }
 
-    @FXML
     private void refresh() {
         ObservableList<User> list = getUserList();
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -281,6 +276,7 @@ public class LoggedInController implements Initializable {
     }
 
 
+    @FXML
     public void Edit() {
 
         try {
@@ -307,6 +303,7 @@ public class LoggedInController implements Initializable {
         }
     }
 
+    @FXML
     public void Delete() {
         cnx = dbconnection.getInstance().getConnection();
         String sql = "delete from user where id = ?";
@@ -330,7 +327,6 @@ public class LoggedInController implements Initializable {
 
     }
 
-    @FXML
     void search_user() {
          id.setCellValueFactory(new PropertyValueFactory<>("id"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -367,6 +363,12 @@ public class LoggedInController implements Initializable {
         sortedData.comparatorProperty().bind(tvUsers.comparatorProperty());
         tvUsers.setItems(sortedData);
 
+    }
+
+    @FXML
+     private void Reclam(ActionEvent event) throws IOException {
+        PidevUser m = new PidevUser() ;
+         m.changeScene("/gui/reclamation.fxml");
     }
 
     
