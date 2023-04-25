@@ -22,7 +22,7 @@ import tn.esprit.tools.MaConnexion;
  *
  * @author chahr
  */
-public class OperationsService implements IOperation {
+public class OperationsService implements IOperation{
     
    public OperationsService() {
         cnx = MaConnexion.getInstance().getCnx();
@@ -32,10 +32,14 @@ public class OperationsService implements IOperation {
 
  
   @Override
+
 public List<Operations> afficher() {
     List<Operations> operationsList = new ArrayList<>();
     try {
-        String sql = "SELECT * FROM operations INNER JOIN medecin ON operations.medecin_id = medecin.id";
+        String sql = "SELECT o.id, o.date, o.lieu, o.equipe, o.description, o.image, m.id AS medecin_id, m.nom_med AS nom_med\n" +
+                     "FROM operations o\n" +
+                     "INNER JOIN medecin m ON o.medecin_id = m.id";
+                
         Statement stmt = cnx.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
@@ -47,7 +51,7 @@ public List<Operations> afficher() {
             o.setDescription(rs.getString("description"));
             o.setImage(rs.getString("image"));
             Medecin med = new Medecin();
-            med.setId(rs.getInt("medecin.id"));
+            med.setId(rs.getInt("medecin_id"));
             med.setNom_med(rs.getString("nom_med"));
             o.setM(med);
             operationsList.add(o);
@@ -59,12 +63,13 @@ public List<Operations> afficher() {
 }
 
 
-@Override
+
+/*
 public void ajouter(Operations o) {
-   try {
+  
        Statement stmt = cnx.createStatement();
        String sql = "INSERT INTO operations(date, lieu, equipe, description, image, medecin_id) "
-               + "VALUES ('" + o.getDate() + "', '" + o.getLieu() + "', '" + o.getEquipe() + "', '" + o.getDescription() + "', '" + o.getImage() + "', (SELECT id FROM medecin WHERE nom_med = '" + o.getM().getNom_med() + "'))";
+               + "VALUES ('" + o.getDate() + "', '" + o.getLieu() + "', '" + o.getEquipe() + "', '" + o.getDescription() + "', '" + o.getImage() + "', (SELECT id FROM medecin WHERE nom_med = '" + o.getM().getId() + "'))";
        int rows = stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
 
        if (rows == 1) {
@@ -76,10 +81,34 @@ public void ajouter(Operations o) {
        } else {
            System.out.println("Erreur lors de l'ajout de l'opération.");
        }
-   } catch (SQLException ex) {
+   } 
+}*/
+
+
+
+
+@Override
+public void ajouter(Operations o){
+     try {
+        sql = "insert into operations(date, lieu, equipe, description, image, medecin_id) values (?,?,?,?,?,?)";
+        PreparedStatement ste = cnx.prepareStatement(sql);
+
+        ste.setString(1, o.getDate());
+        ste.setString(2, o.getLieu());
+        ste.setString(3,o.getEquipe());
+        ste.setString(4,o.getDescription());
+        ste.setString(5, o.getImage());
+         ste.setInt(6, o.getM().getId());
+
+        ste.executeUpdate();
+
+        System.out.println("operation Ajoutée !!");
+     }
+        catch (SQLException ex) {
        Logger.getLogger(OperationsService.class.getName()).log(Level.SEVERE, null, ex);
    }
-}
+    }
+
 
 
     @Override
@@ -111,7 +140,7 @@ public void ajouter(Operations o) {
            PreparedStatement pstmt = cnx.prepareStatement(sql);
            pstmt.setInt(1, o.getId());
            int nbRowsDeleted = pstmt.executeUpdate();
-           if (nbRowsDeleted > 0) {
+           if (nbRowsDeleted > 0) { 
                System.out.println("Opération supprimée avec succès !");
            } else {
                System.out.println("Aucune opération n'a été supprimée.");
@@ -120,9 +149,79 @@ public void ajouter(Operations o) {
            Logger.getLogger(OperationsService.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
+    public Medecin getMedecinByName(String nom) {
+    try {
+        String query = "SELECT * FROM medecin WHERE nom=?";
+        PreparedStatement ps = cnx.prepareStatement(query);
+        ps.setString(1, nom);
+        ResultSet rs = ps.executeQuery();
 
-   
+        Medecin medecin = null;
+        if (rs.next()) {
+            medecin = new Medecin(rs.getInt("id"), rs.getString("nom"), rs.getString("specialite"));
+        }
 
- 
+        rs.close();
+        ps.close();
+        cnx.close();
+
+        return medecin;
+    } catch (SQLException ex) {
+        System.out.println("Error while getting medecin by name: " + ex.getMessage());
+        return null;
+    }
+}
+
+
+    
+
+ public List<Operations> getListeNomMedecins() {
+    List<Operations> operationsList = new ArrayList<>();
+    try {
+        String sql = "SELECT o.id, o.date, o.lieu, o.equipe, o.description, o.image, m.id AS medecin_id, m.nom_med AS nom_med\n" +
+                     "FROM operations o\n" +
+                     "INNER JOIN medecin m ON o.medecin_id = m.id";
+                
+        Statement stmt = cnx.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            Operations o = new Operations();
+            o.setId(rs.getInt("id"));
+            o.setDate(rs.getString("date"));
+            o.setLieu(rs.getString("lieu"));
+            o.setEquipe(rs.getString("equipe"));
+            o.setDescription(rs.getString("description"));
+            o.setImage(rs.getString("image"));
+            Medecin med = new Medecin();
+            med.setId(rs.getInt("medecin_id"));
+            med.setNom_med(rs.getString("nom_med"));
+            o.setM(med);
+            operationsList.add(o);
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return operationsList;
+}
+public Medecin getMedecinByNom(String nom) {
+    // Your database query to retrieve the Medecin object by name
+    // Assuming the Medecin object has a field named "nom"
+    String query = "SELECT * FROM medecin WHERE nom=?";
+    try {
+        PreparedStatement statement = cnx.prepareStatement(query);
+        statement.setString(1, nom);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            Medecin medecin = new Medecin();
+            medecin.setId(resultSet.getInt("id"));
+            medecin.setNom_med(resultSet.getString("nom_med"));
+            // Set other fields of the medecin object as needed
+            return medecin;
+        }
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return null;
+}
 
 }

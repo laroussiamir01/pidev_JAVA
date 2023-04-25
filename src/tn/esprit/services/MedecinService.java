@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package tn.esprit.services;
+
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import tn.esprit.entities.Medecin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.geometry.Pos;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import tn.esprit.entities.Operations;
 import tn.esprit.tools.MaConnexion;
 
@@ -72,6 +80,10 @@ public void ajouter(Medecin m) throws SQLException {
     }
     return medecins;
 }
+ 
+ 
+   
+
    public void modifier(Medecin m) {
     try {
          sql = "UPDATE medecin SET nom_med = ?, prenom_med = ?, tel_med = ?, mail_med = ?, specialite = ?, diplome = ?, photo = ? WHERE id = ?";
@@ -93,6 +105,7 @@ public void ajouter(Medecin m) throws SQLException {
         }
     } catch (SQLException ex) {
         System.out.println("Erreur lors de la modification du Medecin : " + ex.getMessage());
+        Logger.getLogger(MedecinService.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
 
@@ -112,12 +125,64 @@ public void ajouter(Medecin m) throws SQLException {
            Logger.getLogger(OperationsService.class.getName()).log(Level.SEVERE, null, ex);
        }
     }
-}
+    public List<String> getListeNomMedecins() {
+    List<String> nomMedecins = new ArrayList<>();
 
+    try {
      
+        String query = "SELECT nom_med FROM medecin";
+        PreparedStatement st = cnx.prepareStatement(query);
+        ResultSet rs = st.executeQuery();
 
+        while (rs.next()) {
+            nomMedecins.add(rs.getString("nom_med"));
+        }
+
+        st.close();
+        rs.close();
+        cnx.close();
+
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+
+    return nomMedecins;
+}
+    
+    
+    
+public List<Medecin> rechercherParNom(String nomMedecin) {
+    List<Medecin> medecins = new ArrayList<>();
+
+    try {
+        // Create a prepared statement with a parameter for the nom_med value to be searched
+        String sql = "SELECT * FROM medecin WHERE nom_med=?";
+        PreparedStatement pstmt = cnx.prepareStatement(sql);
+        pstmt.setString(1, nomMedecin);
+
+        // Execute the prepared statement and process the result set
+        ResultSet rs = pstmt.executeQuery();
+        while (rs.next()) {
+            Medecin medecin = new Medecin(rs.getInt("id"), rs.getString("nom_med"), rs.getString("prenom_med"),
+                    rs.getInt("tel_med"), rs.getString("mail_med"), rs.getString("specialite"),
+                    rs.getString("diplome"), rs.getString("photo"));
+            medecins.add(medecin);
+        }
+
+    } catch (SQLException ex) {
+        System.err.println("Error while searching for Medecin objects by nom_med value: " + ex.getMessage());
+    }
+
+    return medecins;
+}
 
 
 
 
 }
+
+
+
+
+
+

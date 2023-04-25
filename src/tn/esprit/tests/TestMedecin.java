@@ -16,7 +16,6 @@ import tn.esprit.entities.Medecin;
 import tn.esprit.services.MedecinService;
 import tn.esprit.entities.Operations;
 import tn.esprit.services.OperationsService;
-
 import tn.esprit.tools.MaConnexion;
 
 /**
@@ -35,7 +34,7 @@ public class TestMedecin {
 MedecinService medecinService = new MedecinService();
 
 // Creating a new Medecin object to add
-Medecin medecinToAdd = new Medecin("llllllllll", "Hamdi", 123456789, "chahra@example.com", "Cardiologie", "MD", "chahera.jpg");
+Medecin medecinToAdd = new Medecin("llllllllll", "Hamdi", 123456789, "maaaiiiillll", "Cardiologie", "MD", "chahera.jpg");
 
 try {
     // Adding the new Medecin to the database
@@ -57,12 +56,12 @@ for (Medecin medecin : allMedecins) {
 
     // Create a new instance of Operations with the ID of the operation you want to delete
     Medecin MedecinToDelete = new Medecin();
-    MedecinToDelete.setId(56);
+    MedecinToDelete.setId(71);
 
     // Call the supprimer method to delete the operation from the database
     medecinService.supprimer(MedecinToDelete);
 // Creating a new Medecin object to modify
-Medecin medecinToModify = new Medecin(23, "riimmm", "Hamdi2", 1234567, "chahra2@example.com", "Cardiologie2", "MD2", "chahera2.jpg");
+Medecin medecinToModify = new Medecin(70, "teeest", "Hamdi2", 1234567, "chahra2@example.com", "Cardiologie2", "MD2", "chahera2.jpg");
 
 // Modifying the Medecin in the database using the modifier method
 medecinService.modifier(medecinToModify);

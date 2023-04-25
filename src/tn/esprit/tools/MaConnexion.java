@@ -33,7 +33,7 @@ public class MaConnexion {
     public static MaConnexion getInstance(){
         if(ct==null){
             ct = new MaConnexion();
-        }
+        }  
         return ct;
     }
 

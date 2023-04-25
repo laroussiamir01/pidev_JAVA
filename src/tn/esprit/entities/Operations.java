@@ -100,9 +100,10 @@ private Medecin M;
 
     @Override
     public String toString() {
-        return "Operations{" + "id=" + id + ", date=" + date + ", lieu=" + lieu + ", equipe=" + equipe + ", description=" + description + ", image=" + image + '}';
+        return "Operations{" + "id=" + id + ", date=" + date + ", lieu=" + lieu + ", equipe=" + equipe + ", description=" + description + ", image=" + image +  ", med=" + M.getId() +  '}';
     }
 
+  
   
 
 }

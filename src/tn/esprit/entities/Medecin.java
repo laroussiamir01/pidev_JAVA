@@ -49,6 +49,10 @@ public class Medecin {
     public Medecin(int id) {
       }
 
+    public Medecin(int aInt, String string, String string0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId() {
         return id;
     }
@@ -115,7 +119,12 @@ public class Medecin {
 
     @Override
     public String toString() {
-        return "Medecin{" + "id=" + id + ", nom_med=" + nom_med + ", prenom_med=" + prenom_med + ", tel_med=" + tel_med + ", mail_med=" + mail_med + ", specialite=" + specialite + ", diplome=" + diplome + ", photo=" + photo + '}';
+return ""+this.nom_med+"";
+        
+        }
+
+    public void setMedecin_id(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
