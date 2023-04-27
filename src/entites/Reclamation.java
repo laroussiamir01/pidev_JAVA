@@ -11,7 +11,7 @@ package entites;
 public class Reclamation {
       private int id;
      private String message;
-     private User user_id;
+     private User users_id;
      
      
    
@@ -25,20 +25,20 @@ public class Reclamation {
      public Reclamation(int id,String message, User user){
          this.id=id;
          this.message=message;
-         this.user_id=user;
+         this.users_id=user;
      }
      
      public Reclamation(String message, User user){
          this.message=message;
-         this.user_id=user;
+         this.users_id=user;
      }
       public Reclamation(String message){
          this.message=message;
      }
-  /*    public Reclamation(int id,String message,int user_id){
+  /*    public Reclamation(int id,String message,int users_id){
           this.id=id;
          this.message=message;
-         this.user=user_id;
+         this.user=users_id;
      }*/
 
     public int getId() {
@@ -58,18 +58,18 @@ public class Reclamation {
     }
 
     public User getUser() {
-        return user_id;
+        return users_id;
     }
 
     public void setUser(User user_id) {
-        this.user_id = user_id;
+        this.users_id = user_id;
     }
 
     
 
     @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ", message=" + message + ", user=" + user_id + '}';
+        return "Reclamation{" + "id=" + id + ", message=" + message + ", user=" + users_id + '}';
     }
 
   

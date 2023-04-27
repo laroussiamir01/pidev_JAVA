@@ -233,12 +233,12 @@ public class LoggedInController implements Initializable {
 
         ObservableList<User> UserList = FXCollections.observableArrayList();
         try {
-            String query2 = "SELECT  * from user ";
+            String query2 = "SELECT  * from users ";
             PreparedStatement smt = cnx.prepareStatement(query2);
             User user;
             ResultSet rs = smt.executeQuery();
             while (rs.next()) {
-                user = new User(rs.getInt("id"), rs.getString("email"),rs.getString("roles"),rs.getString("username"));
+                user = new User(rs.getInt("id"), rs.getString("email"),rs.getString("roles"),rs.getString("nom_user"));
                 UserList.add(user);
             }
             System.out.println(UserList);
@@ -286,7 +286,7 @@ public class LoggedInController implements Initializable {
             String value3 = usernames.getText();
             String value8 = roless.getText();
 
-            String query3 = "update user set email='" + value2 + "'  ,username='" + value3 + "'  ,roles='" + value8 + "' WHERE id = '" + value1 + "' ";
+            String query3 = "update users set email='" + value2 + "'  ,nom_user='" + value3 + "'  ,roles='" + value8 + "' WHERE id = '" + value1 + "' ";
             PreparedStatement smt = cnx.prepareStatement(query3);
             smt.execute();
             showRec();
@@ -306,7 +306,7 @@ public class LoggedInController implements Initializable {
     @FXML
     public void Delete() {
         cnx = dbconnection.getInstance().getConnection();
-        String sql = "delete from user where id = ?";
+        String sql = "delete from users where id = ?";
         try {
 
             PreparedStatement smt = cnx.prepareStatement(sql);

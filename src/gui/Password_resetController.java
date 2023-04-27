@@ -64,7 +64,7 @@ void resetPassword123(ActionEvent event) {
       
     if (resetCodeEntered.equals(resetCode)) {
         try (Connection cnx = dbconnection.getInstance().getConnection();
-             PreparedStatement stmt = cnx.prepareStatement("UPDATE user SET password = ? WHERE email = ?")) {
+             PreparedStatement stmt = cnx.prepareStatement("UPDATE users SET password = ? WHERE email = ?")) {
             stmt.setString(1, pw_hash);
             stmt.setString(2, email);
             int rowsUpdated = stmt.executeUpdate();

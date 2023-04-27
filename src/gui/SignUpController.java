@@ -75,6 +75,7 @@ public class SignUpController implements Initializable {
          if(ValidateEmptyForm(username,confirmerMotDePasse,mot_de_passe,email)
             && ValidateName(username) && ValidateEmail(email) && ValidateMdp(mot_de_passe))
         {
+            
                     User user = new User(email.getText(), mot_de_passe.getText(), username.getText());
                     
 

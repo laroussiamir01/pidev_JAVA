@@ -37,7 +37,7 @@ public class ServiceReclamation {
     }
    
       private User getUser(int id) throws SQLException {
-        String query = "SELECT id FROM user WHERE id = ?";
+        String query = "SELECT id FROM users WHERE id = ?";
     PreparedStatement ps = cn.prepareStatement(query);
     ps.setInt(1, id);
     ResultSet rs = ps.executeQuery();
@@ -63,7 +63,7 @@ public class ServiceReclamation {
              {
                  Reclamation r=new Reclamation() ;
                  r.setId(rs.getInt(1));
-                 String query2="SELECT * FROM user where id= " +rs.getString(3);
+                 String query2="SELECT * FROM users where id= " +rs.getString(3);
                  Statement ste1= cn.createStatement();
                  ResultSet rs1=ste1.executeQuery(query2);
                  while(rs1.next()){
@@ -73,11 +73,11 @@ public class ServiceReclamation {
                  r.setUser(user);
                  r.setMessage(rs.getString(2));
                  
-                // reclamations=new Reclamation( rs.getInt("id"), rs.getString("message"),getUser(rs.getInt("user_id")) );
+                // reclamations=new Reclamation( rs.getInt("id"), rs.getString("message"),getUser(rs.getInt("users_id")) );
                //  System.out.println(rs.getString("id"));
            //    System.out.println(getUser(rs.getInt("id")));
-           System.out.println(rs.getString("user_id"));
-          //    System.out.println(getUser(rs.getInt("user_id")));
+           System.out.println(rs.getString("users_id"));
+          //    System.out.println(getUser(rs.getInt("users_id")));
                //  System.out.println(reclamations.toString());
                  ReclamationList.add(r);
              }
@@ -90,7 +90,7 @@ public class ServiceReclamation {
     public void addReclamation(Reclamation reclamation) throws SQLException
     {
       
-         String query = "INSERT INTO reclamation (message,user_id) VALUES (?,?) ";
+         String query = "INSERT INTO reclamation (message,users_id) VALUES (?,?) ";
          PreparedStatement st = cn.prepareStatement(query);
             st.setString(1, reclamation.getMessage());
             st.setString(2,reclamation.getUser().getEmail());

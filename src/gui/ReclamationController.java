@@ -52,7 +52,7 @@ public class ReclamationController implements Initializable {
              
             
           rec_col.setCellValueFactory(new PropertyValueFactory("message"));
-           // email_col.setCellValueFactory(new PropertyValueFactory("user_id"));
+           // email_col.setCellValueFactory(new PropertyValueFactory("users_id"));
         /*    email_col.setCellValueFactory(cellData -> {
             User user =cellData.getValue().getUser();
             return new SimpleIntegerProperty(user.getId()).asObject();

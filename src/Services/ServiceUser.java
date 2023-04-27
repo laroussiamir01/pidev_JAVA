@@ -44,7 +44,7 @@ public class ServiceUser {
     public ObservableList<User> getUserList(){
          ObservableList<User> UserList= FXCollections.observableArrayList();
          
-         String query = "SELECT * from user";
+         String query = "SELECT * from users";
          Statement st ;
          ResultSet rs ;
          try {
@@ -53,7 +53,7 @@ public class ServiceUser {
              User users ;
              while(rs.next())
              {
-                 users=new User( rs.getInt("id"), rs.getString("email"), rs.getString("roles"), rs.getString("username"));
+                 users=new User( rs.getInt("id"), rs.getString("email"), rs.getString("roles"), rs.getString("nom_user"));
                  System.out.println(rs.getString("id"));
                  UserList.add(users);
              }
@@ -69,7 +69,7 @@ public class ServiceUser {
          
          
         String pw_hash = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-         String query = "INSERT INTO user (email,roles,password,username,blocked) VALUES (?,?,?,?,?) ";
+         String query = "INSERT INTO users (email,roles,password,nom_user,is_blocked) VALUES (?,?,?,?,?) ";
          PreparedStatement st = cn.prepareStatement(query);
             st.setString(1, user.getEmail());
             st.setString(2, "ROLE_USER");
@@ -82,9 +82,9 @@ public class ServiceUser {
         
     }
     public void editUser(User user) throws SQLException{
-        String req = "UPDATE user SET "
+        String req = "UPDATE users SET "
                   + "email = ?,"
-                    + "username = ?,"  
+                    + "nom_user = ?,"  
                     + " where id=?";
         
         System.out.println(req);
@@ -98,9 +98,9 @@ public class ServiceUser {
     }
     
     public void editUserProfile(User user) throws SQLException{
-       String req = "UPDATE user SET "
+       String req = "UPDATE users SET "
           + "email = ?,"
-          + "username = ?"  
+          + "nom_user = ?"  
           + "WHERE id=?";
         System.out.println(req);
         PreparedStatement pre = cn.prepareStatement(req);
@@ -127,8 +127,8 @@ public class ServiceUser {
         System.out.println(message.getSid());
     } */
     public void BlockUser(String email) throws SQLException{
-        String req = "UPDATE user SET "
-                  + "blocked = ?"        
+        String req = "UPDATE users SET "
+                  + "is_blocked = ?"        
                     + " where email=?";
         
         System.out.println(req);
@@ -149,8 +149,8 @@ public class ServiceUser {
     }
     
      public void DeblockUser(String email) throws SQLException{
-        String req = "UPDATE user SET "
-                  + "blocked = ?"        
+        String req = "UPDATE users SET "
+                  + "is_blocked = ?"        
                     + " where email=?";
         
         System.out.println(req);
@@ -169,14 +169,14 @@ public class ServiceUser {
     }
       public User searchUserByEmail(String pseudo, String password) throws SQLException {
         User user = null;
-      String req="SELECT (password) FROM user where (username=? OR email=?)";
+      String req="SELECT (password) FROM users where (nom_user=? OR email=?)";
       PreparedStatement st1 = cn.prepareStatement(req);
         st1.setString(1, pseudo.toLowerCase());
         st1.setString(2, pseudo.toLowerCase());
         ResultSet rs1 = st1.executeQuery();
         while (rs1.next()){
             if(BCrypt.checkpw(password,"$2a$"+rs1.getString("password").substring(4, rs1.getString("password").length()))){
-                String requete = "SELECT * FROM user where (username=? OR email=?)";
+                String requete = "SELECT * FROM users where (nom_user=? OR email=?)";
                 PreparedStatement st = cn.prepareStatement(requete);
                 st.setString(1, pseudo.toLowerCase());
                 st.setString(2, pseudo.toLowerCase());
@@ -189,8 +189,8 @@ public class ServiceUser {
                     user.setEmail(rs.getString("email"));
                     user.setRoles(rs.getString("roles"));
                     user.setPassword(rs.getString("password"));  
-                    user.setBlocked(rs.getBoolean("blocked")); 
-                    user.setUsername(rs.getString("username"));
+                    user.setBlocked(rs.getBoolean("is_blocked")); 
+                    user.setNom_user(rs.getString("nom_user"));
                     System.out.println("User found");
 
                 }
@@ -202,8 +202,8 @@ public class ServiceUser {
         return user;
     }
        public void UpdateUser(String email) throws SQLException{
-        String req = "UPDATE user SET "
-                  + "blocked = ?"        
+        String req = "UPDATE users SET "
+                  + "is_blocked = ?"        
                     + " where email=?";
         
         System.out.println(req);

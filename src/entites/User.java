@@ -14,15 +14,15 @@ public class User {
     String email;
     String roles ;
     String Password ;
-    String username ; 
-    Boolean blocked ;
+    String nom_user ; 
+    Boolean is_blocked ;
 
     public Boolean getBlocked() {
-        return blocked;
+        return is_blocked;
     }
 
-    public void setBlocked(Boolean blocked) {
-        this.blocked = blocked;
+    public void setBlocked(Boolean is_blocked) {
+        this.is_blocked = is_blocked;
     }
 
   
@@ -51,7 +51,7 @@ public class User {
     public User(String email, String Password, String username) {
         this.email = email;
         this.Password = Password;
-        this.username = username;
+        this.nom_user = username;
     }
     
  
@@ -59,7 +59,7 @@ public class User {
         this.id=id;
         this.email = email;
         this.roles = roles;
-        this.username = username;
+        this.nom_user = username;
     }
 
 
@@ -100,11 +100,11 @@ public class User {
     }
 
     public String getUsername() {
-        return username;
+        return nom_user;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setNom_user(String nom_user) {
+        this.nom_user = nom_user;
     }
     
 }
