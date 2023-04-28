@@ -173,6 +173,12 @@ public class AffichageMaterielController implements Initializable {
                 return true;
             } else if (materiel.getType().toLowerCase().contains(lowerCaseFilter)){
                 return true;
+            }else if (Double.toString(materiel.getPrix()).contains(lowerCaseFilter)){
+                
+                
+                return true;
+                
+            
             }else 
             return false;
         });
@@ -352,7 +358,7 @@ Materiel data = EventsTv.getSelectionModel().getSelectedItem();
         // Set an event handler for the button
         // Convert the data to a string
         StringBuilder stringBuilder = new StringBuilder();
-       
+        //lawej ala lutilite mtaa apend w kifech tejbed les donees w kifech tnajm tbadelha liste adhika mtaa data
             stringBuilder.append(data);
             System.out.println(data);
             stringBuilder.append("\n");

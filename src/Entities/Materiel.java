@@ -19,6 +19,24 @@ public class Materiel {
         private String type;
         private int prix;
         private int fournisseur_id;
+        private int likes;
+         private int dislikes;
+
+    public Materiel(int id, int likes, int dislikes) {
+        this.id = id;
+        this.likes = likes;
+        this.dislikes = dislikes;
+    }
+
+    public Materiel(int id, String libelle, String type, int prix, int fournisseur_id, int likes, int dislikes) {
+        this.id = id;
+        this.libelle = libelle;
+        this.type = type;
+        this.prix = prix;
+        this.fournisseur_id = fournisseur_id;
+        this.likes = likes;
+        this.dislikes = dislikes;
+    }
 
     public Materiel() {
     }
@@ -132,7 +150,7 @@ public class Materiel {
 
     @Override
     public String toString() {
-        return "Evenement{" + "id=" + id + ", libelle=" + libelle + ", type=" + type +  ", prix=" + prix + ", fournisseur_id=" + fournisseur_id + '}';
+        return " Materiel  \nLibelle : " + libelle + "\nType : " + type +  "\nPrix : " + prix + "";
     }
 
    
@@ -148,7 +166,20 @@ public class Materiel {
     public void setFournisseur_id(int fournisseur_id) {
         this.fournisseur_id = fournisseur_id;
     }
-    
-        
+        // Ajoutez les getters et setters pour les champs likes et dislikes
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+          public int getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
+    }
     
 }
