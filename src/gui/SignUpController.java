@@ -30,6 +30,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -71,10 +72,16 @@ public class SignUpController implements Initializable {
     
     @FXML
     private void addUser(ActionEvent event) throws IOException, SQLException {
-        
+        ServiceUser s= new ServiceUser();
          if(ValidateEmptyForm(username,confirmerMotDePasse,mot_de_passe,email)
             && ValidateName(username) && ValidateEmail(email) && ValidateMdp(mot_de_passe))
         {
+            
+            if (s.isEmailRegistered(email.getText())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cet email est déjà utilisé.", ButtonType.CLOSE);
+            alert.show();
+            return;
+        }
             
                     User user = new User(email.getText(), mot_de_passe.getText(), username.getText());
                     

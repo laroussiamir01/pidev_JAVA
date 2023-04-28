@@ -20,6 +20,7 @@ import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 import org.mindrot.jbcrypt.BCrypt;
 
+
 /**
  *
  * @author Souid
@@ -212,6 +213,31 @@ public class ServiceUser {
         pre.setString(2, email);
         pre.executeUpdate();
         
+    }
+       
+       public boolean isEmailRegistered(String email) throws SQLException {
+        boolean result = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            String query = "SELECT COUNT(*) FROM users WHERE email = ?";
+            ps = cn.prepareStatement(query);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+            if (count > 0) {
+                result = true;
+            }
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+        }
+        return result;
     }
       
       

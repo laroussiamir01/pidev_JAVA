@@ -46,7 +46,7 @@ private void resetPassword() throws IOException {
         email.setFrom("amir.laroussi@esprit.tn");
         email.setSubject("Sauvies : Password Reset Request");
         email.setMsg("Your password reset code is: " + resetCode 
-                + "you can use the code in the reset code in the change password interface to reset your password");
+                + " you can use the code in the reset code in the change password interface to reset your password");
         email.addTo(emailField.getText());
         email.send();
 
