@@ -35,7 +35,7 @@ import util.DataSource;
 /**
  * FXML Controller class
  *
- * @author aminh
+ * @author tasnim
  */
 public class GerersDonController implements Initializable {
 

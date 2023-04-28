@@ -28,7 +28,7 @@ import util.DataSource;
 
 /**
  *
- * @author aminh
+ * @author tasnim
  */
 public class EventCRUD implements InterfaceEvents {
     

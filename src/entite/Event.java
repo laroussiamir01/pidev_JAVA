@@ -9,7 +9,7 @@ import java.sql.Date;
 
 /**
  *
- * @author aminh
+ * @author tasnim
  */
 public class Event {
     private int id ;   

@@ -28,7 +28,7 @@ import service.EventCRUD;
 /**
  * FXML Controller class
  *
- * @author aminh
+ * @author tasnim
  */
 public class UpdateDeleteEventController implements Initializable {
 

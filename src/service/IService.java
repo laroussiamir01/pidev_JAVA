@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author wiemhjiri
+ * @author tasnim
  */
 public interface IService<T> {
     void insert(T t);

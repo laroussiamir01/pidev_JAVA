@@ -7,7 +7,7 @@ package entite;
 
 /**
  *
- * @author aminh
+ * @author tasnim
  */
 public class EventDonation implements Comparable<EventDonation> {
     private String eventName;

@@ -32,7 +32,7 @@ import service.EventCRUD;
 /**
  * FXML Controller class
  *
- * @author aminh
+ * @author tasnim
  */
 public class FrontEventController implements Initializable {
 
@@ -46,6 +46,8 @@ public class FrontEventController implements Initializable {
     private TableColumn<Event, String> colNumCmd;
     @FXML
     private TableColumn<Event, String> colMntCmd;
+    @FXML
+ 
     
  private ObservableList<Event> observableList;
     
@@ -190,6 +192,18 @@ private void refrech(ActionEvent event) {
        stage.setScene(scene);
        stage.show();
     }
-
+      @FXML
+    private void gotoback(ActionEvent event) throws IOException {
+        
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherEvent.fxml"));
     
+       Parent root = loader.load();
+       Scene scene = new Scene(root);
+       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+       stage.setScene(scene);
+       stage.show();
+        
+       
+    }
+
 }

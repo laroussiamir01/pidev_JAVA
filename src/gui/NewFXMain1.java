@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author wiemhjiri
+ * @author tasnim
  */
 public class NewFXMain1 extends Application {
     

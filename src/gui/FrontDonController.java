@@ -35,7 +35,7 @@ import service.DonCRUD;
 /**
  * FXML Controller class
  *
- * @author aminh
+ * @author tasnim
  */
 public class FrontDonController implements Initializable {
 

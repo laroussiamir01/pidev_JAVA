@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author aminh
+ * @author tasnim
  */
 public class FrontMainController implements Initializable {
 

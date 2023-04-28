@@ -38,7 +38,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author hadjn
+ * @author tasnim
  */
 public class CalendarController implements Initializable {
 ZonedDateTime dateFocus;

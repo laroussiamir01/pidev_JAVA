@@ -46,7 +46,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  * FXML Controller class
  *
- * @author aminh
+ * @author tasnim
  */
 public class AfficherEventsController implements Initializable {
     
@@ -272,7 +272,19 @@ private void exportToExcel(ActionEvent event) {
     }
 }
 
-
+ @FXML
+    private void gotofront(ActionEvent event) throws IOException {
+        
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("FrontMain.fxml"));
+    
+       Parent root = loader.load();
+       Scene scene = new Scene(root);
+       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+       stage.setScene(scene);
+       stage.show();
+        
+       
+    }
         
    
                   }

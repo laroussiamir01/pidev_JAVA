@@ -24,7 +24,7 @@ import service.EventCRUD;
 /**
  * FXML Controller class
  *
- * @author aminh
+ * @author tasnim
  */
 public class AjouterEventController implements Initializable {
 
