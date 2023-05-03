@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/Services/Materiel/IServiceMateriel.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/User/loginController.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/User/LoggedInClientController.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/integration/Integration.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/User/EditprofileController.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/User/CaptchaController.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/User/BackController.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/Services/Materiel/IServiceFournisseur.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/Services/User/ServiceReclamation.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/Services/Materiel/FournisseurService.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/util/dbconnection.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/Services/User/ServiceUser.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/User/login.fxml</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/Materiel/AffichageMaterielController.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/gui/User/ChatBotController.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/Materiel/entities/Fournisseur.java</file>
+            <file>file:/C:/Users/fadi1/Desktop/Integration/src/Services/Materiel/MaterielService.java</file>
+        </group>
+    </open-files>
+</project-private>
