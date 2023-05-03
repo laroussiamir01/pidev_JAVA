@@ -31,6 +31,8 @@ public class BackController implements Initializable {
     private Button materielback;
       @FXML
     private Button userback;
+    @FXML
+    private Button eventback;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -54,6 +56,12 @@ public class BackController implements Initializable {
          m.changeScene("/gui/User/LoggedIn.fxml");
         
         
+    }
+
+    @FXML
+    private void GoToBackEvent(ActionEvent event) throws IOException {
+        Integration m = new Integration() ;
+         m.changeScene("/gui/Event/AfficherEvent.fxml");
     }
     
 }

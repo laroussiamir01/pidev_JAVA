@@ -30,6 +30,8 @@ public class FrontController implements Initializable {
     private Button materielFront;
       @FXML
     private Button userFront;
+    @FXML
+    private Button eventFront;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -53,6 +55,12 @@ public class FrontController implements Initializable {
          m.changeScene("/gui/User/LoggedInClient.fxml");
         
         
+    }
+
+    @FXML
+    private void GoToFrontEvent(ActionEvent event) throws IOException {
+         Integration m = new Integration() ;
+         m.changeScene("/gui/Event/FrontMain.fxml");
     }
     
 }
