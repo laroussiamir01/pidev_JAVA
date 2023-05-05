@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import User.entities.User;
 import Services.User.ServiceUser;
@@ -89,13 +89,13 @@ public class LoggedInClientController implements Initializable {
     private void logout() throws IOException {  
         Integration m = new Integration() ;
        
-        m.changeScene("/gui/User/login.fxml");
+        m.changeScene("/GUI/User/login.fxml");
         
     }
     @FXML
     private void toupdatescene()throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/editprofile.fxml");
+         m.changeScene("/GUI/User/editprofile.fxml");
         
     }
      @FXML

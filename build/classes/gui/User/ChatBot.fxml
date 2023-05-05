@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #e9dee6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.User.ChatBotController">
+<AnchorPane prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #e9dee6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User.ChatBotController">
     <children>
         <Label fx:id="lblTitle" layoutX="431.0" layoutY="14.0" text="Chat Bot">
             <font>

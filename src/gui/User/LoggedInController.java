@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import Services.User.ServiceUser;
 import User.entities.User;
@@ -116,14 +116,14 @@ public class LoggedInController implements Initializable {
     private void logout() throws IOException {  
         Integration m = new Integration() ;
        
-        m.changeScene("/gui/User/login.fxml");
+        m.changeScene("/GUI/User/login.fxml");
         
     }
     
      @FXML
     private void tobot()throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/ChatBot.fxml");
+         m.changeScene("/GUI/User/ChatBot.fxml");
         
     }
     
@@ -386,7 +386,7 @@ public class LoggedInController implements Initializable {
     @FXML
      private void Reclam(ActionEvent event) throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/reclamation.fxml");
+         m.changeScene("/GUI/User/reclamation.fxml");
     }
 
       private boolean ValidateEmptyForm(TextField usernames ,TextField emails,TextField roless ){

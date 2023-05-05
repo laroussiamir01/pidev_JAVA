@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.Materiel;
+package GUI.Materiel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -129,6 +129,7 @@ for (Don d : personnes) {
         AffichageMaterielController aec = loader.getController();
         Parent root = loader.load();
         materielback.getScene().setRoot(root); */
+
        Integration m = new Integration() ;
          m.changeScene("/gui/User/Front.fxml");
         

@@ -1,9 +1,11 @@
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import User.entities.User;
 import integration.Integration;
@@ -84,7 +86,7 @@ String imagePath="";
       @FXML
     private void back()throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/LoggedInClient.fxml");
+         m.changeScene("/GUI/User/LoggedInClient.fxml");
         
     }
     

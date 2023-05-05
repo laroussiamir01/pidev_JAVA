@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LocalController">
+    <stylesheets>
+        <URL value="@local.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="latitude" layoutX="664.0" layoutY="126.0" styleClass="mainFxmlClass" />
+      <TextField fx:id="longitude" layoutX="431.0" layoutY="120.0" styleClass="mainFxmlClass" />
+      <ComboBox fx:id="laboratoires" layoutX="234.0" layoutY="121.0" prefWidth="150.0" styleClass="mainFxmlClass" />
+      <TableView fx:id="localTable" layoutX="74.0" layoutY="295.0" onMouseClicked="#MouseAction" prefHeight="262.0" prefWidth="942.0" styleClass="mainFxmlClass">
+        <columns>
+          <TableColumn fx:id="local_col" prefWidth="447.19996643066406" text="Localisation " />
+          <TableColumn fx:id="labo_col" prefWidth="494.40008544921875" text="Laboratoire" />
+        </columns>
+      </TableView>
+      <Button fx:id="ajouterB" layoutX="314.0" layoutY="202.0" mnemonicParsing="false" onAction="#ajouter" styleClass="insert-button-V" text="Ajouter" />
+      <Button fx:id="modifierB" layoutX="486.0" layoutY="202.0" mnemonicParsing="false" onAction="#modifier" styleClass="insert-button-V" text="Modifier" />
+      <Button fx:id="supprimerB" layoutX="664.0" layoutY="202.0" mnemonicParsing="false" onAction="#supprimer" styleClass="insert-button-R" text="Supprimer" />
+      <Label fx:id="id_local" layoutX="216.0" layoutY="135.0" style="-fx-text-fill: transparent;" text="Label" />
+      <Label layoutX="451.0" layoutY="89.0" prefHeight="23.0" prefWidth="188.0" text="longitude :" textFill="#3195d7">
+         <font>
+            <Font name="Britannic Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="684.0" layoutY="89.0" prefHeight="23.0" prefWidth="188.0" text="latitude :" textFill="#3195d7">
+         <font>
+            <Font name="Britannic Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="243.0" layoutY="89.0" prefHeight="23.0" prefWidth="188.0" text="Laboratoires :" textFill="#3195d7">
+         <font>
+            <Font name="Britannic Bold" size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

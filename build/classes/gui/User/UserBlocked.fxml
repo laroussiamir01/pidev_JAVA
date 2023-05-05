@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #e9dee6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.User.UserBlockedController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #e9dee6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User.UserBlockedController">
    <children>
       <Label layoutX="178.0" layoutY="117.0" prefHeight="42.0" prefWidth="583.0" text="Suite a votre violation de notre code d'utilisation de l'application votre compte a été blocké" underline="true">
          <font>

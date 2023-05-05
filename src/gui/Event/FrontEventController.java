@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.Event;
+package GUI.Event;
 
 import Event.entities.Event;
 import java.io.IOException;
@@ -208,8 +208,8 @@ private void refrech(ActionEvent event) {
 
     @FXML
     private void menu(ActionEvent event) throws IOException {
-        Integration m = new Integration() ;
-         m.changeScene("/gui/User/Front.fxml");
+//        Integration m = new Integration() ;
+      //   m.changeScene("/gui/User/Front.fxml");
     }
 
 }

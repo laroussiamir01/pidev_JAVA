@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import integration.Integration;
 import java.io.IOException;
@@ -43,7 +43,7 @@ public class FrontController implements Initializable {
         Parent root = loader.load();
         materielback.getScene().setRoot(root); */
        Integration m = new Integration() ;
-         m.changeScene("/gui/Materiel/sample.fxml");
+         m.changeScene("/GUI/Materiel/sample.fxml");
         
         
     }
@@ -52,7 +52,7 @@ public class FrontController implements Initializable {
         
         
                Integration m = new Integration() ;
-         m.changeScene("/gui/User/LoggedInClient.fxml");
+         m.changeScene("/GUI/User/LoggedInClient.fxml");
         
         
     }
@@ -60,7 +60,7 @@ public class FrontController implements Initializable {
     @FXML
     private void GoToFrontEvent(ActionEvent event) throws IOException {
          Integration m = new Integration() ;
-         m.changeScene("/gui/Event/FrontMain.fxml");
+         m.changeScene("/GUI/Event/FrontMain.fxml");
     }
     
 }

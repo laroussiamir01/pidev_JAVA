@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="553.0" prefWidth="738.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.User.ReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="553.0" prefWidth="738.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.User.ReclamationController">
     <stylesheets>
         <URL value="@reclamation.css" />
     </stylesheets>

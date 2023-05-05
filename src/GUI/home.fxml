@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HomeController">
+    <stylesheets>
+        <URL value="@home.css" />
+    </stylesheets>
+   <children>
+      <TabPane fx:id="anchorPane" layoutX="6.0" layoutY="4.0" prefHeight="700.0" prefWidth="887.0" styleClass="mainFxmlClass" tabClosingPolicy="UNAVAILABLE" />
+   </children>
+</AnchorPane>

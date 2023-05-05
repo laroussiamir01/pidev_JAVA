@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="772.0" prefWidth="1269.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Materiel.AffichageFournisseurController">
+<AnchorPane id="AnchorPane" prefHeight="772.0" prefWidth="1269.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Materiel.AffichageFournisseurController">
      <children>
       <TableView fx:id="CategorieETv" layoutX="73.0" layoutY="163.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="422.0" prefWidth="330.0" style="-fx-background-color: 120;" AnchorPane.rightAnchor="874.0" AnchorPane.topAnchor="163.0">
         <columns>

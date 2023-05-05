@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.Event;
+package GUI.Event;
 
 
 import Event.entities.Event;
@@ -298,16 +298,16 @@ private void exportToExcel(ActionEvent event) {
        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
        stage.setScene(scene);
        stage.show();*/
-                Integration m = new Integration() ;
-         m.changeScene("/gui/User/back.fxml");
+//                Integration m = new Integration() ;
+        // m.changeScene("/gui/User/back.fxml");
         
        
     }
 
     @FXML
     private void menuEvent(ActionEvent event) throws IOException {
-         Integration m = new Integration() ;
-         m.changeScene("/gui/User/back.fxml");
+         //Integration m = new Integration() ;
+        // m.changeScene("/gui/User/back.fxml");
     }
         
    

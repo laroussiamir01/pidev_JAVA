@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import java.io.IOException;
 import integration.Integration;
@@ -34,7 +34,7 @@ public class UserBlockedController implements Initializable {
     @FXML
     private void retour(ActionEvent event) throws IOException{
         Integration m= new Integration();
-        m.changeScene("/gui/User/login.fxml");
+        m.changeScene("/GUI/User/login.fxml");
     }
     
 }

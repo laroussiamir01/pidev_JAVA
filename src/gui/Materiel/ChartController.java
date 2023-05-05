@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.Materiel;
+package GUI.Materiel;
 
 import Services.Materiel.MaterielService;
 import java.io.IOException;

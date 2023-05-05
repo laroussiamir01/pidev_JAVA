@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package gui.User;
+package GUI.User;
 import java.io.IOException;
 import java.net.URL;
 import javafx.fxml.FXML;
@@ -76,7 +76,7 @@ public class ChatBotController implements Initializable{
             }
             if (input.toLowerCase().contains("forgot my password")) {
                 Integration m = new Integration() ;
-         m.changeScene("/gui/User/ResetPassword.fxml");
+         m.changeScene("/GUI/User/ResetPassword.fxml");
             }
           
             if (input.toLowerCase().contains("s") || input.toLowerCase().contains("sante") || input.toLowerCase().contains("maladie") ) {
@@ -100,7 +100,7 @@ public class ChatBotController implements Initializable{
      @FXML
     private void back()throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/LoggedIn.fxml");
+         m.changeScene("/GUI/back.fxml");
         
     }
 }

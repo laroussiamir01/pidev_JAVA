@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
-import gui.Materiel.AffichageMaterielController;
+import GUI.Materiel.AffichageMaterielController;
 import integration.Integration;
 import java.io.IOException;
 import java.net.URL;
@@ -44,7 +44,7 @@ public class BackController implements Initializable {
         Parent root = loader.load();
         materielback.getScene().setRoot(root); */
        Integration m = new Integration() ;
-         m.changeScene("/gui/Materiel/affichageMateriel.fxml");
+         m.changeScene("/GUI/Materiel/affichageMateriel.fxml");
         
         
     }
@@ -53,7 +53,7 @@ public class BackController implements Initializable {
         
         
          Integration m = new Integration() ;
-         m.changeScene("/gui/User/LoggedIn.fxml");
+         m.changeScene("/GUI/User/LoggedIn.fxml");
         
         
     }
@@ -61,7 +61,7 @@ public class BackController implements Initializable {
     @FXML
     private void GoToBackEvent(ActionEvent event) throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/Event/AfficherEvent.fxml");
+         m.changeScene("/GUI/Event/AfficherEvent.fxml");
     }
     
 }

@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import Services.User.ServiceReclamation;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import User.entities.Reclamation;
 import User.entities.User;
 import java.io.IOException;
@@ -25,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import integration.Integration;
+import util.SessionManager;
 
 /**
  * FXML Controller class
@@ -50,6 +50,7 @@ public class ReclamationController implements Initializable {
         List<Reclamation> personnes = ps.getReclamationList();
             ObservableList<Reclamation> olp = FXCollections.observableArrayList(personnes);
              
+            System.out.println("elli connecta "+ SessionManager.getId());
             
           rec_col.setCellValueFactory(new PropertyValueFactory("message"));
            // email_col.setCellValueFactory(new PropertyValueFactory("users_id"));
@@ -70,7 +71,7 @@ public class ReclamationController implements Initializable {
     @FXML
     private void back(ActionEvent event) throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/LoggedIn.fxml");
+         m.changeScene("/GUI/back.fxml");
+   
     }
-    
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import User.entities.User;
 import Services.User.ServiceUser;
@@ -23,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import netscape.javascript.JSObject;
+import util.SessionManager;
 
 /**
  *
@@ -51,6 +52,7 @@ public class loginController {
     
     @FXML 
     private Button login_button ;
+    private SessionManager session;
     
     
             
@@ -73,12 +75,14 @@ private void checkLogin() throws IOException, SQLException, InterruptedException
     if(user != null){
         integration.Integration.user=user ;
         System.out.println("User found: " + user.getEmail() + ", blocked: " + user.getBlocked());
+        session.setId(user.getId());
+       
         if(user.getBlocked() != null && user.getBlocked()) {
-            m.changeScene("/gui/User/UserBlocked.fxml");
+            m.changeScene("/GUI/User/UserBlocked.fxml");
         } else if("ROLE_USER".equals(user.getRoles())) {
-            m.changeScene("/gui/User/Front.fxml");
+            m.changeScene("/GUI/clienttt.fxml");
         } else if("ROLE_ADMIN".equals(user.getRoles())) {
-            m.changeScene("/gui/User/back.fxml");
+            m.changeScene("/GUI/back.fxml");
         }
     } else {
         // if the user is not found, display an alert message and disable the login_button for 20 seconds
@@ -103,14 +107,14 @@ private void checkLogin() throws IOException, SQLException, InterruptedException
     private void checkSignUp() throws IOException{
         
             Integration m = new Integration();
-             m.changeScene("/gui/User/captcha.fxml");
+             m.changeScene("/GUI/User/captcha.fxml");
            
     }
     @FXML
     private void ResetPassword() throws IOException{
         
             Integration m = new Integration();
-             m.changeScene("/gui/User/ResetPassword.fxml");
+             m.changeScene("/GUI/User/ResetPassword.fxml");
            
     }
     

@@ -35,7 +35,7 @@ public class Integration extends Application {
     public void start(Stage stage) throws Exception{
         stg = stage;
        // primaryStage.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/User/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/User/login.fxml"));
         stage.setTitle("Sauvies");
         stage.setScene(new Scene(root, 1200, 800));
         stage.show();

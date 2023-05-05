@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import User.entities.User;
 import java.io.IOException;
@@ -98,7 +98,7 @@ void resetPassword123(ActionEvent event) {
   @FXML
     private void Login()throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/login.fxml");
+         m.changeScene("/GUI/User/login.fxml");
         
     }
 

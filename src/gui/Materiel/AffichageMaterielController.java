@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.Materiel;
+package GUI.Materiel;
 
 import Materiel.entities.Materiel;
 
 import Services.Materiel.MaterielService;
-import gui.Materiel.EditMaterielController;
-import gui.Materiel.AddMaterielController;
+import GUI.Materiel.EditMaterielController;
+import GUI.Materiel.AddMaterielController;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
+//import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.itextpdf.text.BaseColor;
@@ -27,7 +27,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import integration.Integration;
+import integration.Integration ;
 import java.awt.Desktop;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -369,7 +369,7 @@ if (rs.next()) {
     }
     }
     
-    
+    /*
     public void qrcode() throws SQLException {
 
 Materiel data = EventsTv.getSelectionModel().getSelectedItem();
@@ -397,9 +397,9 @@ Materiel data = EventsTv.getSelectionModel().getSelectedItem();
         stage.setScene(scene);
         stage.show();
 
-    }
+    }*/
 
-    private Image generateQRCode(String data) {
+   /* private Image generateQRCode(String data) {
         try {
             // Create a QR code writer
             QRCodeWriter writer = new QRCodeWriter();
@@ -419,7 +419,7 @@ Materiel data = EventsTv.getSelectionModel().getSelectedItem();
         }
     }
 
-
+*/
    
    
    
@@ -513,11 +513,11 @@ document.add(logo);
     // Add the QR code to the document
  // Generate the QR code image
                             String eventData = selectedEvenement.toString();
-                            Image qrCodeImage = generateQRCode(eventData);
+//                            Image qrCodeImage = generateQRCode(eventData);
 
                             // Convert the QR code image to a com.itextpdf.text.Image object
 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-ImageIO.write(SwingFXUtils.fromFXImage(qrCodeImage, null), "png", baos);
+//ImageIO.write(SwingFXUtils.fromFXImage(qrCodeImage, null), "png", baos);
 com.itextpdf.text.Image pdfImage = com.itextpdf.text.Image.getInstance(baos.toByteArray());  
 pdfImage.setAlignment(com.itextpdf.text.Element.ALIGN_LEFT);
 pdfImage.scaleAbsolute(100f, 100f);

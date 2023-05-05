@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui.User;
+package GUI.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -64,7 +64,7 @@ private void resetPassword() throws IOException {
     }
     
     Integration m = new Integration() ;
-         m.changeScene("/gui/User/password_reset.fxml");
+         m.changeScene("/GUI/User/password_reset.fxml");
 }
 
 
@@ -86,7 +86,7 @@ private void resetPassword() throws IOException {
      @FXML
     private void Login()throws IOException {
         Integration m = new Integration() ;
-         m.changeScene("/gui/User/login.fxml");
+         m.changeScene("/GUI/User/login.fxml");
         
     }
 }

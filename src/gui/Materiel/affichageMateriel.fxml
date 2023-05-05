@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#showSelectedMateriel" prefHeight="791.0" prefWidth="1244.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Materiel.AffichageMaterielController">
+<AnchorPane id="AnchorPane" onMouseClicked="#showSelectedMateriel" prefHeight="791.0" prefWidth="1244.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Materiel.AffichageMaterielController">
    <children>
       <TableView fx:id="EventsTv" layoutX="29.0" layoutY="150.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="558.0" prefWidth="674.0" style="-fx-background-color: 120;" AnchorPane.rightAnchor="620.0" AnchorPane.topAnchor="150.0">
         <columns>
@@ -110,8 +110,8 @@
            
          </children>
       </HBox>
-       <Button fx:id="qrcode" contentDisplay="CENTER" layoutX="717.0" layoutY="493.0" mnemonicParsing="false" onAction="#qrcode" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: #454B1B;" text="Generer QrCode" textAlignment="CENTER" textFill="WHITE">
-         <graphic>
+       <!--<Button fx:id="qrcode" contentDisplay="CENTER" layoutX="717.0" layoutY="493.0" mnemonicParsing="false" onAction="#qrcode" prefHeight="30.0" prefWidth="135.0" style="-fx-background-color: #454B1B;" text="Generer QrCode" textAlignment="CENTER" textFill="WHITE">
+        <graphic>
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/add.png" />
@@ -121,7 +121,7 @@
          <font>
             <Font name="Times New Roman" size="14.0" />
          </font>
-      </Button>
+      </Button> --> 
       <Button fx:id="menu" layoutX="38.0" layoutY="708.0" mnemonicParsing="false" onAction="#menuback" text="Menu" />
    </children>
 </AnchorPane>
